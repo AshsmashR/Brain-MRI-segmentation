@@ -102,11 +102,10 @@ annotations — the format exported by tools like Roboflow.
 ---
 
 ## Results
+               Dice | IoU (Jaccard) 
 
-| Split | Dice | IoU (Jaccard) |
-|-------|------|---------------|
 | Validation:  0.85  0.67
-| Test : 0.80  0.74
+| Test :       0.80  0.74
 
 Training curves (`outputs/training_history.png`) and qualitative predictions
 (`outputs/qualitative_results.png`) are generated automatically; embed them
@@ -118,4 +117,34 @@ here once produced:
 ```
 
 ---
+## FastSurfer on a T1 MRI
+
+A short walkthrough that runs **[FastSurfer](https://github.com/Deep-MI/FastSurfer)**
+on a single T1-weighted MRI via the official `deepmi/fastsurfer` Docker image,
+and reads back its outputs. This *uses* FastSurfer as a tool (full credit to the
+Deep-MI lab); it does not reimplement it.
+
+From one T1, FastSurfer produces a whole-brain segmentation, cortical surface
+meshes (white/pial per hemisphere), cortical thickness, and regional stats.
+
+- A free FreeSurfer license is needed only for the surface stream
+  (https://surfer.nmr.mgh.harvard.edu/registration.html); add `--seg_only` to
+  skip it. GPU is faster but CPU works.
+- Test data: FastSurfer's own quickstart sample, or an open T1 (OASIS, IXI).
+
+**Key outputs**
+
+| Path | What it is |
+|---|---|
+| `mri/aparc.DKTatlas+aseg.deep.mgz` | Whole-brain anatomical segmentation |
+| `surf/{lh,rh}.white`, `surf/{lh,rh}.pial` | Cortical surface meshes |
+| `surf/{lh,rh}.thickness` | Per-vertex cortical thickness |
+| `stats/*.stats` | Regional volume / area / thickness tables |
+
+`read_outputs.py` opens these and prints a short summary (dimensions, label
+count, mesh vertex/face counts, mean thickness).
+
+**Cite:** Henschel et al., *FastSurfer*, NeuroImage 2020;
+Henschel et al., *FastSurferVINN*, NeuroImage 2022.
+Independent educational demo, not affiliated with the Deep-MI lab.
 
