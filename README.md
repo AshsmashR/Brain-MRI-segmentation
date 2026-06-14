@@ -1,13 +1,11 @@
 # Brain MRI Segmentation with U-Net (Dice + IoU)
 
-A clean, reproducible 2D U-Net pipeline for **binary segmentation of brain
+A 2D U-Net pipeline for **binary segmentation of brain
 structures from MRI slices**, trained with a combined **BCE + Dice** objective
 and evaluated with overlap metrics (**Dice** and **IoU / Jaccard**). 
 The code is
 organised so it can be extended toward **cortical-structure segmentation** and
 slotted into neuroimaging evaluation workflows.
-
-> **Status:** Working pipeline. Results below are reported on the dataset
 > 
 
 ## Why this project
