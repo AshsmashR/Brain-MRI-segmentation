@@ -119,14 +119,3 @@ here once produced:
 
 ---
 
-## Roadmap
-
-- [ ] Extend from binary masks to **multi-structure** segmentation.
-- [ ] Add **surface-based** post-processing (mesh extraction from volumes).
-- [ ] Cross-subject consistency checks for **longitudinal** stability.
-
----
-
-## License
-
-Released under the MIT License — see `LICENSE`.
