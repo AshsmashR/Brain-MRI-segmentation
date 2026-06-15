@@ -94,11 +94,6 @@ This pipeline expects each split (`train` / `valid` / `test`) as a folder of
 images plus a single COCO-format `.json` with polygon `segmentation`
 annotations — the format exported by tools like Roboflow.
 
-> Describe your specific dataset here: source, number of images per split,
-> what structure is annotated, image resolution, and licence. Public brain-MRI
-> options that work with this pipeline once converted to the expected format
-> include OASIS, Mindboggle-101, and the FreeSurfer/FastSurfer sample subjects.
-
 ---
 
 ## Results
